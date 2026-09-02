@@ -160,23 +160,7 @@ export default function LoginPage() {
           </Link>
         </div>
 
-        <div className="demo-credentials">
-          <strong>
-            Demo accounts
-          </strong>
-
-          <span>
-            Owner: owner@retailops.local / Owner123!
-          </span>
-
-          <span>
-            Manager: manager@retailops.local / Manager123!
-          </span>
-
-          <span>
-            Cashier: cashier@retailops.local / Cashier123!
-          </span>
-        </div>
+        
       </section>
     </main>
   );
