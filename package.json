@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "description": "RetailOps - convenience store POS, inventory, sales, and operations platform",
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev": "concurrently -n WEB,API \"npm run dev -w @retailops/web\" \"npm run start:dev -w @retailops/api\"",
     "dev:web": "npm run dev -w @retailops/web",
@@ -20,6 +22,6 @@
     "concurrently": "^9.2.1",
     "prisma": "7.10.0",
     "tsx": "^4.20.0",
-    "typescript": "^7.0.2"
+    "typescript": "^5.9.3"
   }
 }
