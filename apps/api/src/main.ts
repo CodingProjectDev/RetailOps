@@ -10,7 +10,11 @@ async function bootstrap() {
     credentials: true
   });
 
-  const port = Number(process.env.API_PORT ?? 4000);
+  const port = Number(
+  process.env.PORT ??
+  process.env.API_PORT ??
+  4000
+);
   await app.listen(port);
   console.log(`RetailOps API running at http://localhost:${port}/graphql`);
 }
