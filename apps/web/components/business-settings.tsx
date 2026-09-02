@@ -5,7 +5,11 @@ import {
   useMutation,
   useQuery
 } from "@apollo/client/react";
-import { FormEvent, useEffect, useState } from "react";
+import {
+  FormEvent,
+  useEffect,
+  useState
+} from "react";
 
 const BUSINESS_SETTINGS = gql`
   query BusinessSettings {
@@ -42,22 +46,61 @@ const UPDATE_BUSINESS = gql`
   }
 `;
 
+type BusinessSettingsData = {
+  me: {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    businessId: string;
+  } | null;
+
+  myBusiness: {
+    id: string;
+    name: string;
+    slug: string;
+    active: boolean;
+    createdAt: string;
+    updatedAt: string;
+  } | null;
+};
+
+type UpdateBusinessData = {
+  updateMyBusiness: {
+    id: string;
+    name: string;
+    slug: string;
+    active: boolean;
+    updatedAt: string;
+  };
+};
+
+type UpdateBusinessVariables = {
+  input: {
+    name: string;
+  };
+};
+
 export function BusinessSettings() {
   const {
     data,
     loading,
     error,
     refetch
-  } = useQuery(BUSINESS_SETTINGS, {
-    fetchPolicy: "network-only"
-  });
+  } = useQuery<BusinessSettingsData>(
+    BUSINESS_SETTINGS,
+    {
+      fetchPolicy: "network-only"
+    }
+  );
 
   const [
     updateBusiness,
     updateState
-  ] = useMutation(
-    UPDATE_BUSINESS
-  );
+  ] = useMutation<
+    UpdateBusinessData,
+    UpdateBusinessVariables
+  >(UPDATE_BUSINESS);
 
   const [name, setName] =
     useState("");
@@ -66,10 +109,10 @@ export function BusinessSettings() {
     useState("");
 
   const business =
-    data?.myBusiness;
+    data?.myBusiness ?? null;
 
   const me =
-    data?.me;
+    data?.me ?? null;
 
   const canEdit =
     me?.role === "OWNER";
@@ -83,7 +126,7 @@ export function BusinessSettings() {
   }, [business?.name]);
 
   async function submit(
-    event: FormEvent
+    event: FormEvent<HTMLFormElement>
   ) {
     event.preventDefault();
 
