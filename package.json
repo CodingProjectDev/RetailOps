@@ -1,0 +1,25 @@
+{
+  "name": "retailops",
+  "private": true,
+  "version": "0.1.0",
+  "description": "RetailOps - convenience store POS, inventory, sales, and operations platform",
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently -n WEB,API \"npm run dev -w @retailops/web\" \"npm run start:dev -w @retailops/api\"",
+    "dev:web": "npm run dev -w @retailops/web",
+    "dev:api": "npm run start:dev -w @retailops/api",
+    "build": "npm run build -w @retailops/web && npm run build -w @retailops/api",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.15.0",
+    "concurrently": "^9.2.1",
+    "prisma": "7.10.0",
+    "tsx": "^4.20.0",
+    "typescript": "^7.0.2"
+  }
+}
