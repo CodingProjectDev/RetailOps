@@ -58,10 +58,11 @@ export class PlatformAdminResolver {
       {
         httpOnly: true,
         sameSite:
-          "lax",
-        secure:
-          process.env.NODE_ENV ===
-          "production",
+  process.env.NODE_ENV === "production"
+    ? "none"
+    : "lax",
+secure:
+  process.env.NODE_ENV === "production",
         maxAge:
           8 *
           60 *
