@@ -150,15 +150,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <div className="registration-login-link">
-          <span>
-            New business owner?
-          </span>
-
-          <Link href="/register">
-            Create Business
-          </Link>
-        </div>
+        
 
         
       </section>
