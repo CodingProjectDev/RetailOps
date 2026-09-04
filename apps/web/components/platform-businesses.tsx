@@ -724,7 +724,7 @@ export function PlatformBusinesses() {
                       <td>
                         <div className="platform-admin-row-actions">
                           <Link
-                            href={`/platform-admin/users?businessId=${encodeURIComponent(
+                            href={`/admin/users?businessId=${encodeURIComponent(
                               business.id
                             )}`}
                             className="button secondary"

@@ -39,19 +39,19 @@ const PLATFORM_ADMIN_LOGOUT = gql`
 const links = [
   [
     "Dashboard",
-    "/platform-admin/dashboard"
+    "/admin/dashboard"
   ],
   [
     "Businesses",
-    "/platform-admin/businesses"
+    "/admin/businesses"
   ],
   [
     "Users",
-    "/platform-admin/users"
+    "/admin/users"
   ],
   [
     "Audit Log",
-    "/platform-admin/audit"
+    "/admin/audit"
   ]
 ];
 
@@ -110,7 +110,7 @@ export function PlatformAdminShell({
       error
     ) {
       router.replace(
-        "/platform-admin/login"
+        "/admin/login"
       );
     }
   }, [
@@ -126,7 +126,7 @@ export function PlatformAdminShell({
       await client.clearStore();
 
       router.replace(
-        "/platform-admin/login"
+        "/admin/login"
       );
     }
   }
@@ -154,7 +154,7 @@ export function PlatformAdminShell({
     <div className="platform-admin-shell">
       <aside className="platform-admin-sidebar">
         <Link
-          href="/platform-admin/dashboard"
+          href="/admin/dashboard"
           className="platform-admin-sidebar-brand"
         >
           <span className="platform-admin-brand-mark small">

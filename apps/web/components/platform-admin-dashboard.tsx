@@ -225,7 +225,7 @@ export function PlatformAdminDashboard() {
           </div>
 
           <Link
-            href="/platform-admin/businesses"
+            href="/admin/businesses"
             className="button secondary"
           >
             All Businesses

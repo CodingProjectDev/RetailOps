@@ -77,7 +77,7 @@ export function PlatformAdminLogin() {
       });
 
       router.replace(
-        "/platform-admin/dashboard"
+        "/admin/dashboard"
       );
     } catch (
       error
